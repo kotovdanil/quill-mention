@@ -721,18 +721,15 @@ class Mention {
       );
       const contentAfter = this.quill.getContents(
         mentionCharIndex,
-        mentionCharPos + mentionChar.length - mentionCharIndex
+        mentionCharPos +
+          mentionChar.length +
+          textBeforeCursor.length -
+          mentionCharIndex
       );
-      console.warn(mentionCharIndex);
-      console.warn(mentionCharPos);
-      console.warn(contentAfter);
       const hasRestrictedContent = (restrictedArr, content) => {
         const { ops } = content;
-        console.warn(restrictedArr);
         return ops.find((contentItem) => {
-          console.warn(contentItem);
           if (typeof contentItem.insert !== "string") {
-            console.warn(contentItem.insert);
             return intersection(Object.keys(contentItem.insert), restrictedArr)
               .length
               ? true
