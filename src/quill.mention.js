@@ -721,7 +721,7 @@ class Mention {
       );
       const contentAfter = this.quill.getContents(
         mentionCharIndex,
-        mentionCharPos + 1 - mentionCharIndex
+        mentionCharPos + mentionChar.length - mentionCharIndex
       );
       console.warn(mentionCharIndex);
       console.warn(mentionCharPos);
