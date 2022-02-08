@@ -723,10 +723,14 @@ class Mention {
         mentionCharIndex,
         mentionChar.length
       );
+      console.warn(contentAfter);
       const hasRestrictedContent = (restrictedArr, content) => {
         const { ops } = content;
+        console.warn(restrictedArr);
         return ops.find((contentItem) => {
+          console.warn(contentItem);
           if (typeof contentItem.insert !== "string") {
+            console.warn(contentItem.insert);
             return intersection(Object.keys(contentItem.insert), restrictedArr)
               .length
               ? true
