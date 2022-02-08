@@ -721,8 +721,11 @@ class Mention {
       );
       const contentAfter = this.quill.getContents(
         mentionCharIndex,
-        mentionChar.length
+        mentionCharPos - mentionCharIndex
       );
+      console.warn(mentionCharIndex);
+      console.warn(mentionCharPos);
+      console.warn(mentionChar.length);
       console.warn(contentAfter);
       const hasRestrictedContent = (restrictedArr, content) => {
         const { ops } = content;
