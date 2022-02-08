@@ -719,7 +719,10 @@ class Mention {
       const textAfter = textBeforeCursor.substring(
         mentionCharIndex + mentionChar.length
       );
-      const contentAfter = getContents(mentionCharIndex, mentionChar.length);
+      const contentAfter = this.quill.getContents(
+        mentionCharIndex,
+        mentionChar.length
+      );
       const hasRestrictedContent = (restrictedArr, content) => {
         const { ops } = content;
         return ops.find((contentItem) => {
